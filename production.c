@@ -62,6 +62,7 @@ puts("okay1");
 	int flag = detectPiece(input);
 	puts("okay1.5");
 	if(flag != -2)
+	//new comment!
 	{
 		puts("okay2");
 		playerPieces[i-1] = detectPiece(input);
