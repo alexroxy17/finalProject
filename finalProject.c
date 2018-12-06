@@ -17,10 +17,9 @@
 int main(int argc, char* argv[]) {
 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
 	//Determine initial conditions:
-	//How many players
-	//Number of circuits around the board to play
+	//How many players	//Number of circuits around the board to play
 
-	//int numPlayers = 3; //Initialize players
+	//int numPlayers = 3; //Initialize players  //Deprecated, using constant 3 players now. Const in .h file
 	int numCircuits = 0; //Initialize circuits
 
 
@@ -31,9 +30,11 @@ int main(int argc, char* argv[]) {
 
 
 	monopoly(numCircuits);
+
+
 	//printf("%d %d", numPlayers, numCircuits);
 
-
+	//puts(getPiece(PCAR));
 
 
 	return EXIT_SUCCESS;
