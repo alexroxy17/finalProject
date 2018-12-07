@@ -16,6 +16,10 @@ void monopoly(int numCircuits);
 //Helpers
 int  detectPieceFromInput(char* playerStringPiece);    //Detects a piece from input.
 const char* getPiece(int playerPieceInteger); //Returns piece as a string, with an uppercase first character.
+const char* getGroup(int propertyGroupInteger); //Returns property group as a string, with an uppercase first character.
+
+//Development Testing
+void fileTest(void);
 
 #define CRITFAIL 523069
 
@@ -62,8 +66,18 @@ typedef struct player {
 	int  cash; //Starts at 1500
 } Player;
 
+typedef struct teststruct {
+	int one;
+	int two;
+} TestStruct;
 
-#define NATE player{"Nate", PBAT, 0, 1500}
+struct my_record {
+	char name;
+	int value;
+};
+
+
+//#define NATE player{"Nate", PBAT, 0, 1500}
 
 
 #define GO 0
@@ -106,6 +120,8 @@ typedef struct player {
 #define PARKPLA 37
 #define LUXURYTAX 38
 #define BOARDWALK 39
+
+
 
 
 

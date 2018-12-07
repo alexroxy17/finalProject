@@ -51,18 +51,11 @@ int detectPieceFromInput(char* str)
 	return playerPiece;
 }
 
-/*
- * #define PDOG 0 //Dog
-#define PCAR 1 //Car
-#define PBAT 2 //Battleship
-#define PHAT 3 //Hat
-#define PTHI 4 //Thimble
-#define PSHO 5 //Shoe
-#define PIRO 6 //Iron
-#define PWHE 7 //Wheel
- */
 const char* getPiece(int playerPieceInteger)
 {
+	//This function takes in the internal constant for a player piece, and
+	//returns a string for the formal, english name of that piece with an uppercase first character.
+
 	if(playerPieceInteger == PDOG)
 		return "Dog";
 	else if(playerPieceInteger == PCAR)
@@ -81,4 +74,50 @@ const char* getPiece(int playerPieceInteger)
 		return "Wheelbarrow";
 	else
 		return "Error in getPiece";
+}
+
+const char* getGroup(int propertyGroupInteger)
+{
+	//This takes in the internal constant for a group coulor, and
+	//returns a string with the formal, english name of that piece with an uppercase first character.
+	switch(propertyGroupInteger)
+	{
+		case GBROWN: //If brown group...
+			return "Brown"; //Return "Brown"
+			break;
+		case GTEAL:
+			return "Teal";
+			break;
+		case GPINK:
+			return "Pink";
+			break;
+		case GORANGE:
+			return "Orange";
+			break;
+		case GRED:
+			return "Red";
+			break;
+		case GYELLOW:
+			return "Yellow";
+			break;
+		case GGREEN:
+			return "Green";
+			break;
+		case GBLUE:
+			return "Blue";
+			break;
+		case GRAILROAD:
+			return "Railroad";
+			break;
+		case GUTILITY:
+			return "Utility";
+			break;
+		case GSPECIAL:
+			return "Special";
+			break;
+		default:
+			return "CRITICAL_ERROR_getGroup";
+			puts("Critical error in getGroup");
+			break;
+	}
 }

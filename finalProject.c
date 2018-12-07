@@ -24,13 +24,16 @@ int main(int argc, char* argv[]) {
 
 
 
-	puts("How many circuits around the board would you like to play?");
-	scanf("%d",&numCircuits);
+	//puts("How many circuits around the board would you like to play?");
+	//scanf("%d",&numCircuits);
 
-
-
+	//Property emptyProperties[40];
+	//struct property allProperties[40];
+	//allProperties = initializeProperties();
+	puts("done");
 	monopoly(numCircuits);
-
+	//fflush(stdout);
+	//testingCSV();
 
 	//printf("%d %d", numPlayers, numCircuits);
 
