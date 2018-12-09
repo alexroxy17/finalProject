@@ -10,13 +10,8 @@
 
 #include <stdbool.h>
 
-//Main function
-void monopoly(int numCircuits);
 
-//Helpers
-int  detectPieceFromInput(char* playerStringPiece);    //Detects a piece from input.
-const char* getPiece(int playerPieceInteger); //Returns piece as a string, with an uppercase first character.
-const char* getGroup(int propertyGroupInteger); //Returns property group as a string, with an uppercase first character.
+
 
 //Development Testing
 void fileTest(void);
@@ -48,6 +43,9 @@ void fileTest(void);
 
 #define NUMPLAYERS 3
 #define PBANK -1
+#define PLAYER1 0
+#define PLAYER2 1
+#define PLAYER3 2
 
 typedef struct property {
 	int   group;    //Refer to constants for which group
@@ -57,6 +55,13 @@ typedef struct property {
 	int   owner;    //player number
 	int   houseCount;
 	int   hotelCount;
+	int   houseCost;
+	int   baseRentPrice;
+	int   oneHouseRentPrice;
+	int   twoHouseRentPrice;
+	int   threeHouseRentPrice;
+	int   fourHouseRentPrice;
+	int   hotelRentPrice;
 } Property;
 
 typedef struct player {
@@ -64,6 +69,8 @@ typedef struct player {
 	int  piece; //Refer to constants for pieces
 	int  position; //Position on board
 	int  cash; //Starts at 1500
+	int  ownedRailroads;
+	int  ownedUtilities;
 } Player;
 
 typedef struct teststruct {
@@ -122,7 +129,22 @@ struct my_record {
 #define BOARDWALK 39
 
 
+//Main function
+void monopoly(int numCircuits);
 
+//Helpers
+int  detectPieceFromInput(char* playerStringPiece);    //Detects a piece from input.
+const char* getPiece(int playerPieceInteger); //Returns piece as a string, with an uppercase first character.
+const char* getGroup(int propertyGroupInteger); //Returns property group as a string, with an uppercase first character.
+const char* getOwner(int ownerInteger);
+int getRoll(void); //Roll 2d6
+int isDouble(int roll);//Determine if a roll is a double or not. Returns 1 if true, 0 if false.
+void getCurrentPos(int playerNumber);
+int getYesOrNo(char input[20]);
+
+extern int railroadRent[4];
+extern Player players[3];
+extern Property properties[40];
 
 
 #endif /* FINALPROJECT_H_ */
