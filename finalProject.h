@@ -13,7 +13,6 @@
 
 
 
-
 //Development Testing
 void fileTest(void);
 
@@ -91,11 +90,13 @@ typedef struct teststruct {
 	int two;
 } TestStruct;                   //Used during development to test stuff out, but I'm too afraid to delete it right now
 
+
 struct my_record {
 	char name;
 	int value;
 };
 */
+
 
 
 
@@ -140,8 +141,8 @@ struct my_record {
 #define PARKPLA 37
 #define LUXURYTAX 38
 #define BOARDWALK 39
-
 #define CHANCECARDS 25;
+
 
 //Main function
 void monopoly(int numCircuits);
@@ -153,6 +154,7 @@ const char* getGroup(int propertyGroupInteger); //Returns property group as a st
 const char* getOwner(int ownerInteger);
 int getRoll(void); //Roll 2d6
 int isDouble(int roll);//Determine if a roll is a double or not. Returns 1 if true, 0 if false.
+
 void printCurrentPos(int playerNumber);
 int isYes(char input[20]);
 void doSpecialActions(int playerNumber, int roll);

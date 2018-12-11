@@ -10,7 +10,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
+
 #include <math.h>
+
 #include "finalProject.h"
 
 #include <string.h>
@@ -21,10 +23,12 @@ int currentCircuit;
 ChanceCard chanceCards[25];
 
 
+
 //--------------------GLOBAL VARIABLES--------------------//
 
 
 void monopoly(int numCircuits) {
+
 	/*
 		#define GBROWN  0
 		#define GTEAL   1
@@ -45,6 +49,7 @@ void monopoly(int numCircuits) {
 			int hotelCount;
 		} Property;
 	 */
+
 
 	//----------PLAYER INFO----------//
 		//Default starting names
@@ -74,6 +79,7 @@ void monopoly(int numCircuits) {
 	int   threeHouseRent[40]  =   {-1,90,-1,180,-1,-1,270,-1,270,300,-1,450,-1,450,500,-1,550,-1,550,600,-1,700,-1,700,750,-1,800,800,-1,850,-1,900,900,-1,1000,-1,-1,1100,-1,1400};
 	int   fourHouseRent[40]   =   {-1,160,-1,320,-1,-1,400,-1,400,450,-1,625,-1,625,700,-1,750,-1,750,800,-1,875,-1,875,925,-1,975,975,-1,1025,-1,1100,1100,-1,1200,-1,-1,1300,-1,1700};
 	int   hotelRent[40]       =   {-1,250,-1,450,-1,-1,550,-1,550,600,-1,750,-1,750,900,-1,950,-1,950,1000,-1,1050,-1,1050,1100,-1,1150,1150,-1,1200,-1,1275,1275,-1,1400,-1,-1,1500,-1,2000};
+
 
 
 
@@ -113,6 +119,7 @@ void monopoly(int numCircuits) {
 	//Initializing chance card array
 
 	for(int i=0; i<25; i++) //There are 25 chance cards
+
 	{
 		chanceCards[i].name = chanceName[i];
 		chanceCards[i].chanceCashID = i;
@@ -177,6 +184,7 @@ void monopoly(int numCircuits) {
 		{
 			puts("Critical failure.");
 		}
+
 	}
 
 	players[0].piece = playerPieces[0];
@@ -306,6 +314,7 @@ void monopoly(int numCircuits) {
 			yearsSentenced[i] = abs((int)ceil((double)(players[i].cash)/10.0));
 			printf("Due to the poor management of their estate, %s is in debt! They have been sentenced to %d years in Debtor's Prison!\n", players[i].name, yearsSentenced[i]);
 		}
+
 	}
 	//End of game!
 }
@@ -343,7 +352,3 @@ int doTurn(int playerNumber) //Returns flag if roll is double
 
 	return isRollDouble;
 }
-
-
-
-

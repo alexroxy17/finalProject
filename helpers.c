@@ -5,7 +5,9 @@
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
+
 #include <math.h>
+
 #include "finalProject.h"
 
 Property properties[40];
@@ -13,6 +15,7 @@ Player players[3];
 int railroadRentLookup[4];
 int currentCircuit;
 ChanceCard chanceCards[25];
+
 
 int detectPieceFromInput(char* str)
 {
@@ -143,6 +146,7 @@ int getRoll(void)
 	sleep(1);
 	int die1 = rand() % (max_number + 1 - min_number) + min_number; //Roll one dice
 	srand(time(NULL));
+
 	int die2 = rand() % (max_number + 1 - min_number) + min_number; //Roll a second dice
 
 	if(die1 == die2)
@@ -181,7 +185,9 @@ void printCurrentPos(int whatPlayer)
 		printf("\nView more details? (Y/N)\n");
 		char response1[20];
 		scanf("%9s", response1);
+
 		if(isYes(response1))
+
 		{
 			printf("\nPrice : %d\n", properties[players[whatPlayer].position].price);
 			if((properties[players[whatPlayer].position].group != GRAILROAD) && (properties[players[whatPlayer].position].group != GUTILITY))
@@ -197,10 +203,12 @@ void printCurrentPos(int whatPlayer)
 			}
 			else if(properties[players[whatPlayer].position].group == GRAILROAD)
 			{
+
 				printf("Rent with one owned railroad:  %d\n", railroadRentLookup[0]);
 				printf("Rent with two owned railroads: %d\n", railroadRentLookup[1]);
 				printf("Rent with one owned railroads: %d\n", railroadRentLookup[2]);
 				printf("Rent with one owned railroads: %d\n", railroadRentLookup[3]);
+
 			}
 			else if(properties[players[whatPlayer].position].group == GUTILITY)
 			{
@@ -216,7 +224,9 @@ void printCurrentPos(int whatPlayer)
 }
 
 
+
 int isYes(char input[20])
+
 {
 	int result = -1;
 
@@ -264,6 +274,7 @@ const char* getOwner(int ownerInt)
 		break;
 	}
 }
+
 
 int isChance(int position) //Returns 1 if the current position is chance, 0 otherwise.
 {
@@ -838,3 +849,4 @@ int countHotels(int playerNumber)
 	}
 	return hotels;
 }
+
