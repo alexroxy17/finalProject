@@ -9,7 +9,7 @@
 #define FINALPROJECT_H_
 
 #include <stdbool.h>
-
+#include <math.h>
 
 
 
@@ -62,29 +62,43 @@ typedef struct property {
 	int   threeHouseRentPrice;
 	int   fourHouseRentPrice;
 	int   hotelRentPrice;
+	int   location;
 } Property;
 
 typedef struct player {
-	char *name;
-	int  piece; //Refer to constants for pieces
-	int  position; //Position on board
-	int  cash; //Starts at 1500
-	int  ownedRailroads;
-	int  ownedUtilities;
+	char     *name;
+	int      piece; //Refer to constants for pieces
+	int      position; //Position on board
+	int      cash; //Starts at 1500
+	int      ownedRailroads;
+	int      ownedUtilities;
+	int      ownedProperties;
+	Property propertyList[40];
+	int		 circuits;
 } Player;
 
+typedef struct chancecard {
+	char *name;
+	int  chanceCashID;
+	int  relativeSpacing;
+	int  absoluteSpacing;
+} ChanceCard;
+
+/*
 typedef struct teststruct {
 	int one;
 	int two;
-} TestStruct;
+} TestStruct;                   //Used during development to test stuff out, but I'm too afraid to delete it right now
+
 
 struct my_record {
 	char name;
 	int value;
 };
+*/
 
 
-//#define NATE player{"Nate", PBAT, 0, 1500}
+
 
 
 #define GO 0
@@ -127,6 +141,7 @@ struct my_record {
 #define PARKPLA 37
 #define LUXURYTAX 38
 #define BOARDWALK 39
+#define CHANCECARDS 25;
 
 
 //Main function
@@ -139,12 +154,29 @@ const char* getGroup(int propertyGroupInteger); //Returns property group as a st
 const char* getOwner(int ownerInteger);
 int getRoll(void); //Roll 2d6
 int isDouble(int roll);//Determine if a roll is a double or not. Returns 1 if true, 0 if false.
-void getCurrentPos(int playerNumber);
-int getYesOrNo(char input[20]);
 
-extern int railroadRent[4];
+void printCurrentPos(int playerNumber);
+int isYes(char input[20]);
+void doSpecialActions(int playerNumber, int roll);
+void doChance(int playerNumber, int roll);
+void doGo(int playerNumber);
+void doIncomeTax(int playerNumber);
+void doLuxuryTax(int playerNumber);
+void doJail(int playerNumber);
+void doGoToJail(int playerNumber);
+void doNormalActions(int playerNumber, int diceRoll);
+void doBuyHouses(int playerNumber);
+int getLeastCircuits(void);
+int doTurn(int playerNumber);
+
+int countHouses(int playerNumber);
+int countHotels(int playerNumber);
+
+extern int railroadRentLookup[4];
 extern Player players[3];
 extern Property properties[40];
+extern int currentCircuit;
+extern ChanceCard chanceCards[25];
 
 
 #endif /* FINALPROJECT_H_ */
